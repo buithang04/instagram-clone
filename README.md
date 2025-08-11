@@ -1,61 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📸 Instagram Clone - Laravel & Tailwind CSS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Một ứng dụng mạng xã hội mô phỏng Instagram, xây dựng bằng **Laravel**, **Tailwind CSS** và các công nghệ hiện đại.  
+Dự án bao gồm đầy đủ các tính năng như **đăng bài, thích, bình luận, lưu bài, theo dõi, tin, nhắn tin và thông báo thời gian thực**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Tính năng nổi bật
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🏠 Home Page
+- **Swipe & Like** bài viết trực tiếp trên trang chủ  
+- **Stories** dạng tròn giống Instagram  
+- **Follow/Unfollow** người dùng  
+- **Comment**, **Save Post**, và **Infinite Scroll** (cuộn vô tận)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🔍 Search Page
+- Tìm kiếm người dùng  
+- Xem hồ sơ và theo dõi trực tiếp từ kết quả tìm kiếm
 
-## Learning Laravel
+### 🌎 Explore Page
+- **Hover Preview** hình ảnh  
+- Xem bài viết và tương tác ngay trên giao diện khám phá
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🎥 Reel Page
+- Xem video ngắn dạng Reels  
+- **Like**, **Save**, và cuộn để xem các video tiếp theo
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 💬 Messages & Notifications
+- Chat thời gian thực giữa người dùng  
+- Nhận thông báo khi có người tương tác với bạn
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📝 Post Creation
+- Đăng bài viết dạng hình ảnh hoặc video  
+- Hỗ trợ **Mixed Media Posts** (nhiều ảnh/video)  
+- Giới hạn dung lượng file để tối ưu trải nghiệm
 
-## Laravel Sponsors
+### 👤 Profile Page
+- Tabs cho **Posts**, **Saved**, và **Tagged**  
+- Thống kê **followers**, **followings**, **số bài viết**  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠️ Công nghệ & kỹ năng sử dụng
+- **Laravel 10** – Framework PHP mạnh mẽ
+- **Livewire** – Xây dựng giao diện động mà không cần nhiều JavaScript thuần
+- **Tailwind CSS** – CSS framework tiện lợi, tối ưu responsive
+- **DaisyUI** – Thư viện component UI cho Tailwind
+- **Alpine.js** – Thư viện JS nhẹ cho tương tác frontend
+- **Eloquent ORM** – Làm việc với database theo hướng đối tượng
+- **RESTful API** – Giao tiếp frontend-backend theo chuẩn REST
+- **Pusher** – Thời gian thực cho chat và thông báo
+- **MySQL** – Hệ quản trị cơ sở dữ liệu
+- **JavaScript (ES6+)** – Tương tác client-side
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 📦 Cài đặt & chạy dự án
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+# Clone project
+git clone https://github.com/your-username/instagram-clone.git
+cd instagram-clone
 
-## Code of Conduct
+# Cài đặt backend
+composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Copy file môi trường
+cp .env.example .env
 
-## Security Vulnerabilities
+# Tạo database và cấu hình trong .env
+# DB_DATABASE=instagram_clone
+# DB_USERNAME=root
+# DB_PASSWORD=
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Chạy migration & seed
+php artisan migrate --seed
 
-## License
+# Tạo key ứng dụng
+php artisan key:generate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Build giao diện Tailwind + DaisyUI
+npm install
+npm run dev
+
+# Tạo symbolic link cho storage
+php artisan storage:link
+
+# Chạy server
+php artisan serve
