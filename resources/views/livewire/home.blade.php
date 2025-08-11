@@ -13,10 +13,12 @@ isScrolled = scrollTop + divHeight >= scrollHeight-1;
 
 if(isScrolled &&  canLoadMore){
 @this.loadMore();
+
+
 }
 "
-class="w-full h-full text-gray-800" >
-    <header class="md:hidden sticky top-0 bg-white">
+class="w-full h-full text-gray-80 "  >
+    <header class="md:hidden sticky top-0 ">
 
         <div class="grid grid-cols-12 gap-2 items-center">
 
@@ -90,7 +92,7 @@ class="w-full h-full text-gray-800" >
         </aside>
         
         <!-- sugestions -->
-        <aside class="lg:col-span-3  hidden lg:block p-4 " >
+        <aside class="lg:col-span-4  hidden lg:block p-4 " >
                 <div class="flex items-center gap-2">
                     <x-avatar class="w-12 h-12" />
                     <h4 wire:ignore class="text-gray-900/95  font-bold">{{fake()->name}}</h4>

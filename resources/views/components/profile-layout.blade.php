@@ -149,8 +149,7 @@
             <li class="flex items-center gap-2 py-2 cursor-pointer  {{request()->routeIs('profile.home')?'border-t border-black':''}}">
                 {{-- border icon from bootsrap icons --}}
                 <a wire:navigate  class="flex items-center gap-2 py-2 cursor-pointer"
-                href="#">
-             
+                href="{{route('profile.home',$user->username)}}">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-border-all lg:w-5 lg:h-5" viewBox="0 0 16 16">
@@ -170,7 +169,7 @@
                 {{-- border icon from bootsrap icons --}}
 
                 <a wire:navigate  class="flex items-center gap-2 py-2 cursor-pointer"
-                   href="#">
+                   href="{{route('profile.reels',$user->username)}}">
                 
                 
                 <span>
@@ -200,7 +199,7 @@
                 {{-- Tag icon from bootsrap icons --}}
 
                 <a wire:navigate class="flex items-center gap-2 py-2 cursor-pointer"
-                href="#">
+                href="{{route('profile.saved',$user->username)}}">
              
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

@@ -21,12 +21,15 @@
     <body class="font-sans antialiased bg-white">
           <div class="drawer lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content  items-center justify-center">
+  <div class="drawer-content  items-center justify-center z-0">
   {{$slot}}
   </div>
-  <div class="drawer-side ">
-    <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
-    @include('layouts.sidebar')
+  <div class="drawer-side !overflow-visible  z-10"  >
+    <label for="my-drawer-2" class="drawer-overlay"></label>
+
+
+    <livewire:components.sidebar />
+
   </div>
 </div>
     @livewire('wire-elements-modal')

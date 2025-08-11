@@ -14,7 +14,7 @@
             @switch($cover?->mime)
                 @case('video')
 
-                <x-video source="{{$cover->url}}" />
+                <x-video  source="{{$cover->url}}" />
 
                     @break
 
