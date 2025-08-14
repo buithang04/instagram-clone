@@ -55,7 +55,7 @@ Dự án bao gồm đầy đủ các tính năng như **đăng bài, thích, bì
 
 ```bash
 # Clone project
-git clone https://github.com/your-username/instagram-clone.git
+git clone https://github.com/buithang04/instagram-clone.git
 cd instagram-clone
 
 # Cài đặt backend
