@@ -3,11 +3,12 @@
 namespace App\Livewire\Profile;
 
 use App\Models\User;
+use App\Notifications\NewFollowerNotification;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Home extends Component
-{   
+{
     public $user;
 
 
@@ -17,13 +18,21 @@ class Home extends Component
     }
 
 
-    function toggleFollow(){
-        abort_unless(auth()->check(),401);
-        auth()->user()->toggleFollow($this->user);
+function toggleFollow(){
+    abort_unless(auth()->check(),401);
+    auth()->user()->toggleFollow($this->user);
+
+    if(auth()->user()->isFollowing($this->user)){
+        $this->user->notify(
+            new \App\Notifications\NewFollowerNotification(
+                auth()->user(), 
+                $this->user->user_id
+            )
+        );
     }
+}
 
-
-    public function mount($user){
+     function mount($user){
         $this->user = User::whereUsername($user)->withCount(['followers','followings','posts'])->firstOrFail();
     }
 

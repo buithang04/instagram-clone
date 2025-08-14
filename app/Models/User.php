@@ -68,4 +68,9 @@ class User extends Authenticatable
     function comments(): HasMany{
         return $this->hasMany(Comment::class,'user_id', 'user_id');
     }
+
+        public function receivesBroadcastNotificationsOn(): string
+    {
+        return 'users.'.$this->user_id;
+    }
 }

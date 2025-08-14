@@ -4,6 +4,8 @@ namespace App\Livewire\Post;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Notifications\NewCommentNotification;
+use App\Notifications\PostLikedNotification;
 use Livewire\Component;
 
 class Item extends Component
@@ -17,7 +19,14 @@ class Item extends Component
         abort_unless(auth()->check(),401);
         
         auth()->user()->toggleLike($this->post);
-    }}
+
+        if($this->post->isLikedBy(auth()->user())){
+        if($this->post->user_id != auth()->id()){
+
+            $this->post->user->notify(new PostLikedNotification(auth()->user(),$this->post));
+        }
+    }
+}}
 
     function toggleFavorite(){{
         abort_unless(auth()->check(),401);
@@ -35,7 +44,7 @@ class Item extends Component
         $this->validate(['body'=>'required']);
 
         # creat comment
-        Comment::create([
+         $comment= Comment::create([
             'body'=> $this->body,
             
             'commentable_id'=> $this->post->id,
@@ -45,6 +54,16 @@ class Item extends Component
         ]);
 
         $this->reset('body');
+
+        #notify user
+        if ($this->post->user_id != auth()->id()) {
+    $receiverId = $this->post->user_id;
+
+    $this->post->user->notify(
+        new NewCommentNotification(auth()->user(), $comment, $receiverId)
+    );
+}
+
     }
     public function render()
     {
