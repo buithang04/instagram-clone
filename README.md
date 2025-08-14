@@ -25,9 +25,6 @@ Dự án bao gồm đầy đủ các tính năng như **đăng bài, thích, bì
 - Xem video ngắn dạng Reels  
 - **Like**, **Save**, và cuộn để xem các video tiếp theo
 
-### 💬 Messages & Notifications
-- Chat thời gian thực giữa người dùng  
-- Nhận thông báo khi có người tương tác với bạn
 
 ### 📝 Post Creation
 - Đăng bài viết dạng hình ảnh hoặc video  
