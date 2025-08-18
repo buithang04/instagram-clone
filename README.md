@@ -1,36 +1,36 @@
-Instagram Clone – Laravel & Tailwind CSS
+# Instagram Clone – Laravel & Tailwind CSS
 
-Ứng dụng mạng xã hội mô phỏng Instagram với tính năng: đăng bài (image/video), like, comment, save, follow, reels, message và thông báo thời gian thực.
+Ứng dụng mạng xã hội mô phỏng **Instagram** với đầy đủ tính năng:  
+*Đăng bài (ảnh/video), Like, Comment, Save, Follow, Explore, Reels, nhắn tin và thông báo thời gian thực.*
 
-Tính năng
+---
 
-Trang chủ: Like, Comment, Save
+## Tính năng
 
-Tìm kiếm: Tìm người dùng & theo dõi trực tiếp
+- Trang chủ: Like, Comment, Save  
+- Tìm kiếm: Tìm người dùng & theo dõi trực tiếp  
+- Khám phá: Hover Preview, tương tác nhanh  
+- Reels: Video ngắn, Like/Save, cuộn dọc  
+- Hồ sơ: Bài viết, Saved, Reels, Followers/Followings  
+- Đăng bài: Image/Video  
+- Tin nhắn: Chat realtime, trạng thái đã xem/đang gõ  
+- Thông báo: Like, Comment, Follow (Realtime)  
 
-Khám phá: Hover Preview, tương tác nhanh
+---
 
-Reels: Video ngắn, Like/Save, cuộn dọc
+## Công nghệ
 
-Hồ sơ: post, saved, reels, Followers/Followings
+- **Laravel 10**, **Livewire v3**, **Alpine.js**  
+- **Tailwind CSS v3 + DaisyUI**  
+- **Eloquent ORM** (Polymorphic Relationships)  
+- **Pusher & Broadcasting** (Realtime Chat & Notifications)  
+- **MySQL**  
 
-Đăng bài: Image/Video
+---
 
-Tin nhắn: Chat realtime, đã xem
+## Cài đặt
 
-Thông báo: Like, Comment, Follow (realtime)
-
-Công nghệ
-
-Laravel 10, Livewire v3, Alpine.js
-
-Tailwind CSS v3 + DaisyUI
-
-Pusher & Broadcasting (realtime)
-
-MySQL
-
- Cài đặt
+```bash
 # Clone
 git clone https://github.com/buithang04/instagram-clone.git
 cd instagram-clone
