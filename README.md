@@ -13,7 +13,7 @@
 - Reels: Video ngắn, Like/Save, cuộn dọc  
 - Hồ sơ: Bài viết, Saved, Reels, Followers/Followings  
 - Đăng bài: Image/Video  
-- Tin nhắn: Chat realtime, trạng thái đã xem/đang gõ  
+- Tin nhắn: Chat realtime, trạng thái đã xem
 - Thông báo: Like, Comment, Follow (Realtime)  
 
 ---
@@ -22,7 +22,6 @@
 
 - **Laravel 10**, **Livewire v3**, **Alpine.js**  
 - **Tailwind CSS v3 + DaisyUI**  
-- **Eloquent ORM** (Polymorphic Relationships)  
 - **Pusher & Broadcasting** (Realtime Chat & Notifications)  
 - **MySQL**  
 
