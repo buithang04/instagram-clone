@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Chat\Index;
+use App\Livewire\Chat\Main;
 use App\Livewire\Explore;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,10 @@ Route::get('/', Home::class)->name('home');
 Route::get('/explore', action: Explore::class)->name('explore');
 Route::get('/reels', action: LivewireReels::class)->name('reels');
 Route::get('/post/{post}', action: Page::class)->name('post');
+
+Route::get('/chat',Index::class)->name('chat');
+Route::get('/chat/{chat}',Main::class)->name('chat.main');
+
 
 
 Route::get('/profile/{user}', ProfileHome::class)->name('profile.home');
