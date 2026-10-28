@@ -8,5 +8,5 @@ it('returns a successful response', function () {
 
 it('redirects the demo route to GitHub Pages', function () {
     $this->get('/demo')
-        ->assertRedirect('https://buithang04.github.io/instagram-clone');
+        ->assertRedirect('https://buithang04.github.io/instagram-clone/docs');
 });
