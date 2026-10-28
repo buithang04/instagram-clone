@@ -37,11 +37,11 @@
     .feed{min-width:0}
     .stories{display:flex;gap:15px;overflow-x:auto;padding:8px 4px 20px;scrollbar-width:none}
     .stories::-webkit-scrollbar{display:none}
-    .story{flex:0 0 70px;border:0;background:none;padding:0;cursor:pointer;text-align:center}
-    .story-ring{display:grid;width:66px;height:66px;margin:auto;place-items:center;border-radius:50%;background:linear-gradient(135deg,#f9ce34,#ee2a7b 55%,#6228d7);transition:transform var(--motion)}
+    .story{display:flex;flex:0 0 70px;flex-direction:column;align-items:center;gap:6px;border:0;background:none;padding:0;cursor:pointer;text-align:center}
+    .story-ring{display:grid;flex:0 0 66px;width:66px;height:66px;margin:0;padding:3px;place-items:center;border-radius:50%;background:linear-gradient(135deg,#f9ce34,#ee2a7b 55%,#6228d7);transition:transform var(--motion)}
     .story:hover .story-ring{transform:scale(1.04)}
-    .story img{width:59px;height:59px;border:3px solid #fff;border-radius:50%;object-fit:cover}
-    .story span{display:block;margin-top:6px;overflow:hidden;color:#334155;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+    .story img{width:100%;height:100%;border:2px solid #fff;border-radius:50%;object-fit:cover}
+    .story-name{display:block;width:100%;margin:0;overflow:hidden;color:#334155;font-size:12px;line-height:16px;text-overflow:ellipsis;white-space:nowrap}
     .post{overflow:hidden;margin:0 0 24px;border:1px solid var(--line);border-radius:13px;background:#fff}
     .post-head{display:flex;min-height:60px;align-items:center;padding:10px 12px}
     .post-head .avatar{width:36px;height:36px}
@@ -83,7 +83,7 @@
     @media(max-width:1160px){:root{--nav:76px}.sidebar{align-items:center}.brand{width:40px;overflow:hidden;margin:4px 0 30px;font-family:inherit;font-size:0}.brand::before{content:'◎';font-size:30px}.nav-link{justify-content:center;padding:0 12px}.nav-text{display:none}.page{gap:32px;width:min(100% - 32px,982px)}}
     @media(max-width:900px){.page{grid-template-columns:minmax(0,630px);justify-content:center}.aside{display:none}}
     @media(max-width:767px){.sidebar{display:none}.app{margin-left:0}.mobile-head{position:sticky;top:0;z-index:40;display:flex;min-height:58px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);padding:0 12px;backdrop-filter:blur(12px)}.mobile-brand{font-family:"Segoe Script","Brush Script MT",cursive;font-size:24px;font-weight:700;letter-spacing:-1.5px}.mobile-actions{display:flex}.page{display:block;width:100%;padding:10px 0 86px}.stories{padding:7px 12px 16px;border-bottom:1px solid var(--line)}.post{margin-bottom:12px;border-width:0 0 1px;border-radius:0}.bottom-nav{position:fixed;inset:auto 0 0;z-index:50;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);background:rgba(255,255,255,.96);padding:4px 5px max(5px,env(safe-area-inset-bottom));backdrop-filter:blur(12px)}.bottom-nav a{display:grid;min-height:48px;place-items:center;border-radius:10px}.bottom-nav a:active{background:var(--soft)}.toast{bottom:76px}}
-    @media(max-width:380px){.story{flex-basis:64px}.story-ring{width:60px;height:60px}.story img{width:53px;height:53px}.post-copy{padding-inline:12px}}
+    @media(max-width:380px){.story{flex-basis:64px}.story-ring{flex-basis:60px;width:60px;height:60px}.post-copy{padding-inline:12px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
   </style>
 </head>
@@ -127,13 +127,13 @@
       <section class="feed" aria-label="Bảng tin">
         <h1 class="sr-only">Bảng tin Instagram Clone</h1>
         <div class="stories" id="stories" aria-label="Tin nổi bật">
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-1.jpg" alt="Tin của Minh Anh"></span><span>minhanh</span></button>
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-2.jpg" alt="Tin của Khánh Linh"></span><span>khanhlinh</span></button>
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-3.jpg" alt="Tin của Nhật Nam"></span><span>nhatnam</span></button>
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-4.jpg" alt="Tin của Trâm Nguyễn"></span><span>tramnguyen</span></button>
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-5.jpg" alt="Tin của Gia Huy"></span><span>giahuy</span></button>
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-6.jpg" alt="Tin của An Nhiên"></span><span>annhien</span></button>
-          <button class="story" type="button"><span class="story-ring"><img src="assets/post-7.jpg" alt="Tin của Hoàng Anh"></span><span>hoanganh</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-1.jpg" alt="Tin của Minh Anh"></span><span class="story-name">minhanh</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-2.jpg" alt="Tin của Khánh Linh"></span><span class="story-name">khanhlinh</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-3.jpg" alt="Tin của Nhật Nam"></span><span class="story-name">nhatnam</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-4.jpg" alt="Tin của Trâm Nguyễn"></span><span class="story-name">tramnguyen</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-5.jpg" alt="Tin của Gia Huy"></span><span class="story-name">giahuy</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-6.jpg" alt="Tin của An Nhiên"></span><span class="story-name">annhien</span></button>
+          <button class="story" type="button"><span class="story-ring"><img src="assets/post-7.jpg" alt="Tin của Hoàng Anh"></span><span class="story-name">hoanganh</span></button>
         </div>
 
         <article class="post">
