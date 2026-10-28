@@ -38,10 +38,10 @@ class Home extends Component
     // function to load posts
 
     function loadPosts(){
-        $this->posts = Post::with("comments.replies")
+        $this->posts = Post::with(['comments.replies', 'media', 'user', 'likers'])
         ->latest()->take($this->perPage)->get();
 
-        $this->canLoadMore = (count($this->posts)>= $this->perPage); 
+        $this->canLoadMore = Post::count() > $this->posts->count();
     }
 
     #[On('post-created')]
@@ -71,7 +71,7 @@ class Home extends Component
 
     public function render()
     {
-        $suggestedUsers = User::limit(5)->get();
+        $suggestedUsers = User::where('user_id', '!=', auth()->id())->limit(5)->get();
         return view('livewire.home',['suggestedUsers'=>$suggestedUsers]);
     }
 }

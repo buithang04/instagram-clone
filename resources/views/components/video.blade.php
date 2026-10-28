@@ -2,6 +2,7 @@
     'source'=>'https://cdn.devdojo.com/pines/videos/coast.mp4',
     'controls'=>true,
     'cover'=>false,
+    'poster'=>'/demo-media/post-1.jpg',
 ])
 
 
@@ -11,7 +12,9 @@
     x-intersect:leave="$refs.player.pause()"
 >
 
-        <video x-ref="player" @play="playing=true" @pause="playing=false" 
+        <video x-ref="player" @play="playing=true" @pause="playing=false"
+        preload="metadata" poster="{{$poster}}" playsinline
+        @if ($controls == true) controls @endif
         class="h-full max-h-[800px] m-auto w-full {{$cover==true ? 'object-cover':''}}"
         
         >
@@ -19,7 +22,7 @@
             <source src="{{$source}}" type="video/mp4">
                 
         </video>
-        
+
         @if ($controls == true)
             
         

@@ -22,16 +22,33 @@ import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 window.Pusher = Pusher;
 
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
-    wsHost: import.meta.env.VITE_PUSHER_HOST ? import.meta.env.VITE_PUSHER_HOST : `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
-    wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
-    wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
-    forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
-    enabledTransports: ['ws', 'wss'],
-});
+const pusherKey = import.meta.env.VITE_PUSHER_APP_KEY;
+
+if (pusherKey) {
+    window.Echo = new Echo({
+        broadcaster: 'pusher',
+        key: pusherKey,
+        cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER ?? 'mt1',
+        wsHost: import.meta.env.VITE_PUSHER_HOST ? import.meta.env.VITE_PUSHER_HOST : `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
+        wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
+        wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
+        forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
+        enabledTransports: ['ws', 'wss'],
+    });
+} else {
+    const demoChannel = {
+        listen() { return this; },
+        notification() { return this; },
+        stopListening() { return this; },
+    };
+
+    window.Echo = {
+        channel() { return demoChannel; },
+        private() { return demoChannel; },
+        presence() { return demoChannel; },
+        leave() {},
+    };
+}
 
 // BROADCAST_CONNECTION=pusher
 // PUSHER_APP_ID=2035483

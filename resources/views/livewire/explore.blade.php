@@ -1,17 +1,18 @@
-<div class="my-5 lg:px-8">
+<div class="ig-shell py-4 sm:py-8">
   
 
 
 
 
-    <ul class="grid grid-cols-4 sm:gap-3">
+    <header class="mb-5"><h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Explore</h1><p class="mt-1 text-sm text-slate-500">Discover photos and reels from the community.</p></header>
+    <ul class="grid grid-cols-3 gap-0.5 sm:gap-1">
         @foreach ($posts as $post )
         @php
             $cover = $post->media()->first();
         @endphp
 
-            <li onclick="Livewire.dispatch('openModal', { component: 'post.view.modal', arguments: { post: {{ $post->id }} } })"
-            class="h-28 sm:h-80 w-full cursor-pointer border rounded bg-black relative items-center flex justify-center group">
+            <li class="aspect-square min-w-0"><button type="button" aria-label="Open post by {{ $post->user->username }}" onclick="Livewire.dispatch('openModal', { component: 'post.view.modal', arguments: { post: {{ $post->id }} } })"
+            class="group relative flex h-full w-full cursor-pointer items-center justify-center overflow-hidden bg-black">
                 {{-- hover show comments and likes --}}
                 <div class="hidden group-hover:flex transition-all absolute inset-x-0 m-auto z-10 max-w-fit items-center gap-2">
                     {{-- like count  --}}
@@ -84,7 +85,7 @@
                     @default
                         
                 @endswitch
-            </li>
+            </button></li>
         @endforeach
         
     </ul>

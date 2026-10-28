@@ -31,5 +31,8 @@ class Post extends Model
     public function comments(): MorphMany{
         return $this->morphMany(Comment::class,'commentable')->with('replies');
     }
-
+    public function isLikedBy(\Illuminate\Database\Eloquent\Model $user): bool
+    {
+        return $this->likers()->where('users.user_id', $user->getKey())->exists();
+    }
 }

@@ -1,9 +1,9 @@
-<div class="max-w-lg mx-auto text-gray-800">
+<article class="ig-card mx-auto max-w-lg text-slate-900">
 
 
     {{-- header --}}
 
-    <header class="flex items-center gap-3">
+    <header class="flex items-center gap-3 px-3 py-2.5">
         <x-avatar src="https://i.pravatar.cc/150?img" class="h-9 w-9" />
         <div class="grid grid-cols-7 w-full gap-2">
 
@@ -13,7 +13,7 @@
                 </h5>
             </div>
             <div class="col-span-2 flex text-right justify-end">
-                <button class="text-gray-600 ml-auto">
+                <button type="button" aria-label="Post options" class="ig-icon-button ml-auto text-slate-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                         <path
@@ -28,8 +28,8 @@
 
     {{-- main --}}
 
-    <main>
-        <div class="mp-2">
+    <div>
+        <div>
             <!-- Slider main container -->
             <div  x-init="$nextTick(() => {
         new Swiper($el, {
@@ -43,9 +43,9 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-    })" class="swiper h-[500px] border bg-white">
+    })" class="swiper aspect-square max-h-[680px] bg-slate-50 sm:aspect-[4/5]">
                 <!-- Additional required wrapper -->
-                <ul x-cloak class="swiper-wrapper">
+                <ul class="swiper-wrapper">
                     <!-- Slides -->
                     @foreach ( $post->media as $file )
                     <li class="swiper-slide">
@@ -55,7 +55,7 @@
                                 @break
 
                             @case('image')
-                                <img src="{{$file->url}}" alt="" class="h-[500px] w-full block object-scale-down">
+                                <img loading="lazy" src="{{$file->url}}" alt="Post by {{ $post->user->username }}" class="block h-full w-full object-contain">
                                 @break
                             @default
                                 
@@ -93,18 +93,18 @@
             </div>
 
         </div>
-    </main>
+    </div>
 
 
     {{-- footer --}}
 
 
-    <footer class="mt-auto" >
+    <footer class="mt-auto px-3 pb-3" >
             {{-- actions --}}
-        <div class="flex gap-4 items-center my-2">
+        <div class="flex items-center gap-1 py-1.5">
              {{-- heart --}}
              @if ($post->isLikedBy(auth()->user()))
-            <button wire:click='togglePostLike()' >
+            <button aria-label="Unlike post" class="ig-icon-button" wire:click='togglePostLike()' >
 
             
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-rose-500">
@@ -113,7 +113,7 @@
             </button>
 
              @else
-             <button wire:click='togglePostLike()' >
+             <button aria-label="Like post" class="ig-icon-button" wire:click='togglePostLike()' >
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
                     stroke="currentColor" class="size-6">
@@ -131,7 +131,7 @@
                 
             
              {{-- comment --}}
-             <button onclick="Livewire.dispatch('openModal', { component: 'post.view.modal', arguments: { post: {{ $post->id }} } })">
+             <button aria-label="View comments" class="ig-icon-button" onclick="Livewire.dispatch('openModal', { component: 'post.view.modal', arguments: { post: {{ $post->id }} } })">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -140,23 +140,23 @@
             </button>
             @endif
             {{-- forward --}}
-            <span>
+            <button type="button" aria-label="Share post" class="ig-icon-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-send h-5 w-5" viewBox="0 0 16 16">
                     <path
                         d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
                 </svg>
-            </span>
+            </button>
             {{-- Bookmark/favorites --}}
             <span class="ml-auto">
                 @if ($post ->hasBeenFavoritedBy(auth()->user()))
-                <button wire:click="toggleFavorite()">
+                <button aria-label="Remove from saved" class="ig-icon-button" wire:click="toggleFavorite()">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                         <path fill-rule="evenodd" d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z" clip-rule="evenodd" />
                     </svg>
                 </button>
                 @else
-                <button wire:click="toggleFavorite()">
+                <button aria-label="Save post" class="ig-icon-button" wire:click="toggleFavorite()">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -238,8 +238,9 @@
         x-data="{body:@entangle('body')}" class="grid grid-cols-12 items-center w-full">
             @csrf
 
-            <input x-model="body" type="text" placeholder="Leave a comment"
-                class="border-0 col-span-10 placeholder:text-sm outline-none focus:outline-none px-0 rounded-lg hover:ring-0 focus:ring-0">
+            <label class="sr-only" for="comment-{{ $post->id }}">Add a comment</label>
+            <input id="comment-{{ $post->id }}" x-model="body" type="text" placeholder="Add a comment…" autocomplete="off"
+                class="col-span-10 min-h-11 border-0 px-0 text-sm placeholder:text-slate-500 focus:ring-0">
             <div class="col-span-1 ml-auto flex justify-end text-right">
                 <button type="submit" x-cloak x-show="body.length >0"
                     class="text-sm font-semibold flex justify-end text-blue-500">
@@ -264,4 +265,4 @@
 
         </footer>
 
-</div>
+</article>

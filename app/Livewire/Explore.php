@@ -12,12 +12,12 @@ class Explore extends Component
 
     #[On('closeModal')]
     function reverUrl(){
-        $this->js("history.replaceState({},'','/')");
+        $this->js("history.replaceState({},'','/explore')");
     }
 
     public function render()
     {
-        $posts = Post::limit(20)->get();
+        $posts = Post::with(['media', 'likers', 'comments', 'user'])->latest()->limit(30)->get();
         return view('livewire.explore',['posts' => $posts]);
     }
 }

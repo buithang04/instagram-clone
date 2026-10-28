@@ -14,7 +14,7 @@ class Saved extends Component
 
      #[On('closeModal')]
     function reverUrl(){
-        $this->js("history.replaceState({},'','/')");
+        $this->js("history.replaceState({},'','/profile/{$this->user->username}/saved')");
     }
 
 
@@ -33,7 +33,10 @@ class Saved extends Component
     {   
         $this->user = User::whereUsername($this->user->username)->withCount(['followers','followings','posts'])->firstOrFail();
 
-        $posts= $this->user->getFavoriteItems(Post::class)->get();
+        $posts = Post::with('media')
+            ->whereHas('favorites', fn ($query) => $query->where('favorites.user_id', $this->user->getKey()))
+            ->latest()
+            ->get();
 
         return view('livewire.profile.saved',['posts'=>$posts]);
     }

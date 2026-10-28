@@ -61,7 +61,7 @@ test('user can delete their account', function () {
 
     $response
         ->assertSessionHasNoErrors()
-        ->assertRedirect('/');
+        ->assertRedirect('/login');
 
     $this->assertGuest();
     $this->assertNull($user->fresh());
@@ -82,4 +82,12 @@ test('correct password must be provided to delete account', function () {
         ->assertRedirect('/profile');
 
     $this->assertNotNull($user->fresh());
+});
+
+test('saved profile page is displayed', function () {
+    $user = User::factory()->create();
+
+    $response = $this->actingAs($user)->get(route('profile.saved', $user->username));
+
+    $response->assertOk();
 });

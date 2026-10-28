@@ -4,13 +4,14 @@ import { livewire_hot_reload } from 'virtual:livewire-hot-reload'
 livewire_hot_reload();
 
 
-// import Alpine from 'alpinejs';
-
-// window.Alpine = Alpine;
-
 import intersect from '@alpinejs/intersect'
-Alpine.plugin(intersect)
-// Alpine.start();
+
+// Livewire 3 ships and starts Alpine. Register plugins on its lifecycle event
+// instead of starting a second Alpine instance, which breaks x-data scopes
+// after Livewire navigation.
+document.addEventListener('alpine:init', () => {
+    window.Alpine?.plugin(intersect);
+}, { once: true });
 
 
 // core version + navigation, pagination modules:

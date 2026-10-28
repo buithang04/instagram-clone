@@ -1,10 +1,10 @@
 @props(['user'])
-<div class="max-w-3xl mx-auto text-gray-800" >
+<div class="ig-shell max-w-4xl text-slate-900" >
 
     {{-- Mobile only header --}}
     <header class="items-center py-2 px-2 border-b lg:hidden grid grid-cols-12">
         {{-- cheveron from heroicons --}}
-        <button onclick="history.back()" class="col-span-2">
+        <button type="button" aria-label="Go back" onclick="history.back()" class="ig-icon-button col-span-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.9"
                 stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -22,7 +22,7 @@
         <span class="col-span-2 flex justify-end ">
 
             {{-- Guest options bututon --}}
-            <button>
+            <button type="button" aria-label="Profile options" class="ig-icon-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path
@@ -63,7 +63,7 @@
                 <div class="col-span-12 lg:col-span-6 grid grid-cols-2 gap-3 ">
 
                     {{-- Send message button --}}
-                    <a href="#" type="button"
+                    <a href="{{ route('profile.edit') }}"
                         class=" inline-flex justify-center font-bold items-center  rounded-lg  text-sm p-1.5 px-2 transition  bg-gray-200 hover:bg-slate-100 ">
                         Edit profile
                     </a>
@@ -122,10 +122,10 @@
             </section>
 
             {{-- following details --}}
-            <div class="grid grid-cols-3 w-full gap-2">
-                <span class="font-bold" wire:key='{{time()}}'>{{$user->posts_count}} Posts</span>
-                <span class="font-bold">{{$user->followers_count}} Followers</span>
-                <span class="font-bold">{{$user->followings_count}} following</span>
+            <div class="grid grid-cols-3 w-full gap-2 text-sm sm:text-base">
+                <span><strong>{{$user->posts_count}}</strong> Posts</span>
+                <span><strong>{{$user->followers_count}}</strong> Followers</span>
+                <span><strong>{{$user->followings_count}}</strong> Following</span>
             </div>
 
             {{-- profile user's name --}}
@@ -222,7 +222,7 @@
     </section>
 
 
-    <main class="my-7">
+    <main class="mb-8 mt-4">
         {{$slot}}
     </main>
 

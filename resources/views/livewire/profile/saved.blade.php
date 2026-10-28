@@ -1,6 +1,6 @@
 <x-profile-layout :user="$user" >
     
-    <ul class="grid grid-cols-3 gap-3">
+    <ul class="grid grid-cols-3 gap-0.5 sm:gap-1">
 
         @foreach ($posts as $post )
             
@@ -9,12 +9,12 @@
         @endphp
         
         <li onclick="Livewire.dispatch('openModal', { component: 'post.view.modal', arguments: { post: {{ $post->id }} } })"
-        class="h-32 md:h-72 w-full cursor-pointer border rounded">
+        class="aspect-square w-full cursor-pointer overflow-hidden bg-slate-100">
 
             @switch($cover?->mime)
                 @case('video')
 
-                <x-video source="{{$cover->url}}" />
+                <x-video :controls="false" :cover="true" source="{{$cover->url}}" />
 
                     @break
 

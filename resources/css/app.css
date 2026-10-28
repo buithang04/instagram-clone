@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    [x-cloak] { display: none !important; }
+
+    :root {
+        --ig-bg: #ffffff;
+        --ig-surface: #ffffff;
+        --ig-text: #0f172a;
+        --ig-muted: #64748b;
+        --ig-border: #e2e8f0;
+        --ig-accent: #e11d48;
+        --ig-blue: #2563eb;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--ig-bg); color: var(--ig-text); }
+    button, a, input, textarea { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2; }
+    button, [role="button"], a { @apply touch-manipulation; }
+    img, video { max-width: 100%; }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+}
+
+@layer components {
+    .ig-shell { @apply mx-auto w-full max-w-6xl px-3 sm:px-5 lg:px-8; }
+    .ig-card { @apply overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm; }
+    .ig-icon-button { @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-200 hover:bg-slate-100 active:bg-slate-200; }
+    .ig-primary-button { @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50; }
+    .ig-input { @apply min-h-11 w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 text-sm text-slate-900 placeholder:text-slate-500 focus:border-slate-500 focus:bg-white focus:ring-slate-400; }
+    .ig-gradient-ring { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); padding: 2px; }
+    .ig-empty { @apply flex min-h-48 flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 text-center text-slate-600; }
+}
+
+@layer utilities {
+    .safe-bottom { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+}
