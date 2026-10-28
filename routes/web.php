@@ -17,7 +17,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::view('/shop-demo', 'shop-demo')->name('shop.demo');
+Route::redirect('/demo', 'https://buithang04.github.io/instagram-clone/')->name('demo');
 
 
 Route::middleware('auth')->group(function () {

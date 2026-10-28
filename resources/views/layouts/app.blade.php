@@ -43,7 +43,7 @@
                     ['home', route('home'), 'Home', 'M3 11.5 12 3l9 8.5V21h-6v-6H9v6H3v-9.5Z'],
                     ['explore', route('explore'), 'Explore', 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm3.5-13.5-2 5-5 2 2-5 5-2Z'],
                     ['reels', route('reels'), 'Reels', 'M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13ZM4 8h16M9 3l3 5m3-5 3 5m-8 4v5l4-2.5-4-2.5Z'],
-                    ['shop.demo', route('shop.demo'), 'Shop demo', 'M6 8V6a6 6 0 0 1 12 0v2m3 0-1 13H4L3 8h18Z'],
+                    ['chat', route('chat'), 'Messages', 'M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.2-4.1A8.5 8.5 0 1 1 21 11.5Z'],
                     ['profile.home', route('profile.home', auth()->user()->username), 'Profile', 'M20 21a8 8 0 0 0-16 0m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z'],
                 ];
             @endphp

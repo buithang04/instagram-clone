@@ -3,6 +3,8 @@
 Ứng dụng mạng xã hội mô phỏng **Instagram** với đầy đủ tính năng:  
 *Đăng bài (ảnh/video), Like, Comment, Save, Follow, Explore, Reels, nhắn tin và thông báo thời gian thực.*
 
+**[Xem bản demo giao diện trên GitHub Pages](https://buithang04.github.io/instagram-clone/)**
+
 ---
 
 ## Tính năng
@@ -46,3 +48,4 @@ npm install && npm run dev
 # Storage & Serve
 php artisan storage:link
 php artisan serve
+```

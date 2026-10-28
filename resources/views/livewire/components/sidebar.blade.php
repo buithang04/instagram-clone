@@ -201,13 +201,6 @@
         </li>
 
 
-        <li>
-            <a href="{{ route('shop.demo') }}" class="flex min-h-11 items-center gap-5 rounded-xl px-2 transition hover:bg-slate-100">
-                <span><svg aria-hidden="true" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 8V6a6 6 0 0 1 12 0v2m3 0-1 13H4L3 8h18Z" /></svg></span>
-                <h4 x-cloak x-show="!(shrink || drawer)" class="text-lg {{ request()->routeIs('shop.demo') ? 'font-bold' : 'font-medium' }}">Shop demo</h4>
-            </a>
-        </li>
-
         @auth
             <li>
                 <a wire:navigate href="{{ route('profile.home', auth()->user()->username)}}"
